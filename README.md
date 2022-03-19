@@ -33,4 +33,4 @@ Now use the custom input in HTML and play around with custom attributes. Add/Rem
 
 ![Snap of Web Component](/Custom-Input-UI.png "Snap of Web Component")
 
-Do live handon with CodeSandBox [Link](https://codesandbox.io/embed/jolly-water-5qhte2?fontsize=14&hidenavigation=1&theme=dark&view=preview)
+Do live handon with CodeSandBox [Link](https://codesandbox.io/embed/webcomponent-input-b49gpj?fontsize=14&hidenavigation=1&theme=dark&view=preview)
