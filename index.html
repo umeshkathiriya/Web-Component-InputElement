@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Components</title>
+    <style>
+        *{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+        .container{max-width: 1200px; margin: 0 auto;}
+        hr{border:1px solid #999; margin: 2rem 0;}
+        h1, h3{margin-bottom: .5em;}
+        p{margin: .5em 0;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Web Components - Custom Input Element</h1>
+        <hr/>
+        <h3>Default UI of custom Input with label and error notification.</h3>
+        <p><i>Custom input accept basic attributes such as type, id, class, placeholder. Custom <strong>ui=""</strong> attribute to style the input component. Named Slot used for customize input <strong>Labels</strong> and <strong>Error</strong> message validation.</i></p>
+        
+        <custom-input type="text">
+            <span slot="customLabel">Full Name</span>
+        </custom-input>
+        <custom-input type="text" id="inputEmail" placeholder="Enter user name">
+            <span slot="customLabel">User Name</span>
+            <span slot="validationMessage">Enter valid email ID.</span>
+        </custom-input>
+        <custom-input type="email" placeholder="Enter Email" >
+            <span slot="customLabel">Email ID</span>
+            <span slot="validationMessage">Enter valid email ID. Includes @ and dot(.)</span>
+        </custom-input>
+        <custom-input type="password" placeholder="Enter password" >
+            <span slot="customLabel">Password</span>
+            <span slot="validationMessage">Must be 8 characters long, includes one letter uppercase and one number.</span>
+        </custom-input>
+        <hr/>
+        <h3>Side By Side UI with custom attribute ui="inline".</h3>
+        <p><i>Use own custom class to style the structure for example Bootstrap class used 'col-sm-2, col-sm-4' to set element width.</i></p>
+        <custom-input type="text" id="inputName" placeholder="Enter user name" ui="inline" >
+            <span slot="customLabel">User Name</span>
+        </custom-input>
+        <custom-input type="email" id="userEmailID" class="col-sm-4" placeholder="Enter Email" ui="inline">
+            <span slot="customLabel" class="col-sm-2">Email ID</span>
+            <span slot="validationMessage">Please check email ID. Should contain @ and dot(.)</span>
+        </custom-input>
+        <custom-input type="password" class="col-sm-4" placeholder="Enter password" ui="inline">
+            <span slot="customLabel" class="col-sm-2">Password</span>
+            <span slot="validationMessage">Must be 8 characters long, includes one letter uppercase and one number.</span>
+        </custom-input>
+        <hr/>
+        <h3>Label overlaping UI with custom attribute ui="underline".</h3>
+        <custom-input type="text" id="inputUserName" class="col-sm-4" placeholder="Enter user name" ui="underline" >
+            <span slot="customLabel">User Name</span>
+        </custom-input>
+        <custom-input type="email" placeholder="Enter Email" ui="underline">
+            <span slot="customLabel">Email ID</span>
+            <span slot="validationMessage">Enter valid email ID. Incldeus @ and dot(.)</span>
+        </custom-input>
+        <custom-input type="password" placeholder="Enter password" ui="underline">
+            <span slot="customLabel">Password</span>
+            <span slot="validationMessage">Must be 8 characters long, includes one letter uppercase and one number.</span>
+        </custom-input>
+    </div>
+    <br/><br/>
+    <!-- type="text,password,email" -->
+    <template id="custom-inputTemplate">
+        <link rel="stylesheet" href="custom-input.css"></link>
+        <div class="custom_input_wrapper">
+            <label><slot name="customLabel"></slot></label>
+            <div class="inputWrapper">
+                <input />
+                <p><slot name="validationMessage"></slot></p>
+            </div>
+        </div>
+    </template>
+    <script type="module" src="custom-input.js"></script>
+</body>
+</html>
